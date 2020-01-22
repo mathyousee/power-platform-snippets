@@ -6,4 +6,4 @@ Little snippets, functions, and code that I want to remember later.
 
 Power Apps
 
-[Odata](.odata.md)
+[Odata](/odata.md)

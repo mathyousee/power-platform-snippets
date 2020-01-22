@@ -1,4 +1,4 @@
-# Odata operations
+# Odata expressions
 
 References for Odata filters
 

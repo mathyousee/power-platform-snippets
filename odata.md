@@ -12,19 +12,19 @@ References for Odata filters
 
  The Web API supports the standard OData filter operators listed in the following table.  
   
-|Operator|Description|Example|  
+|Operator|Description|Odata Filter field example|  
 |--------------|-----------------|-------------|  
 |**Comparison Operators**|||  
-|`eq`|Equal|`$filter=revenue eq 100000`|  
-|`ne`|Not Equal|`$filter=revenue ne 100000`|  
-|`gt`|Greater than|`$filter=revenue gt 100000`|  
-|`ge`|Greater than or equal|`$filter=revenue ge 100000`|  
-|`lt`|Less than|`$filter=revenue lt 100000`|  
-|`le`|Less than or equal|`$filter=revenue le 100000`|  
+|`eq`|Equal|`revenue eq 100000`|  
+|`ne`|Not Equal|`revenue ne 100000`|  
+|`gt`|Greater than|`revenue gt 100000`|  
+|`ge`|Greater than or equal|`revenue ge 100000`|  
+|`lt`|Less than|`revenue lt 100000`|  
+|`le`|Less than or equal|`=revenue le 100000`|  
 |**Logical Operators**|||  
-|`and`|Logical and|`$filter=revenue lt 100000 and revenue gt 2000`|  
-|`or`|Logical or|`$filter=contains(name,'(sample)') or contains(name,'test')`|  
-|`not`|Logical negation|`$filter=not contains(name,'sample')`|  
+|`and`|Logical and|`revenue lt 100000 and revenue gt 2000`|  
+|`or`|Logical or|`contains(name,'(sample)') or contains(name,'test')`|  
+|`not`|Logical negation|`not contains(name,'sample')`|  
 |**Grouping Operators**|||  
 |`( )`|Precedence grouping|`(contains(name,'sample') or contains(name,'test')) and revenue gt 5000`|  
   
@@ -37,11 +37,11 @@ References for Odata filters
  
 The Web API supports these standard OData string query functions:
  
-|Function|Example|  
+|Function|Odata Filter field example|  
 |--------------|-------------|  
-|`contains`|`$filter=contains(name,'(sample)')`|  
-|`endswith`|`$filter=endswith(name,'Inc.')`|  
-|`startswith`|`$filter=startswith(name,'a')`|  
+|`contains`|`contains(name,'(sample)')`|  
+|`endswith`|`endswith(name,'Inc.')`|  
+|`startswith`|`startswith(name,'a')`|  
   
 > [!NOTE]
 >  This is a sub-set of the [11.2.5.1.2 Built-in Query Functions](https://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part1-protocol/odata-v4.0-errata02-os-part1-protocol-complete.html). `Date`, `Math`, `Type`, `Geo` and other string functions aren’t supported in the web API.  

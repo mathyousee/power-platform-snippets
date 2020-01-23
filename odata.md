@@ -20,7 +20,7 @@ References for Odata filters
 |`gt`|Greater than|`revenue gt 100000`|  
 |`ge`|Greater than or equal|`revenue ge 100000`|  
 |`lt`|Less than|`revenue lt 100000`|  
-|`le`|Less than or equal|`=revenue le 100000`|  
+|`le`|Less than or equal|`revenue le 100000`|  
 |**Logical Operators**|||  
 |`and`|Logical and|`revenue lt 100000 and revenue gt 2000`|  
 |`or`|Logical or|`contains(name,'(sample)') or contains(name,'test')`|  

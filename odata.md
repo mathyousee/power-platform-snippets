@@ -90,4 +90,4 @@ Additional details on OData data aggregation can be found here: [OData Extension
 
 ## Links
 
-https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/webapi/query-data-web-api
+[Web API Documentation on docs](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/webapi/query-data-web-api)

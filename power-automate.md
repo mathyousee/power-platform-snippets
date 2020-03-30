@@ -31,7 +31,6 @@ first(body('List_Users_to_get_GUID')?['value']). systemuserid
 
 Next, a condition is used to check whether or not any RAs are returned or not. If a user doesn’t have any RAs that meet our criteria, the Flow is cancelled as succeeded. If RAs are found, we’re jumping into the Flow’s first apply to each loop to iterate through the previous list records action for RAs. Imagine if those first expressions were not used in the previous steps. We’d have a pretty loopy Flow by now. The empty expression used in the Does List my RAs return values condition is:
 
-For 
 ```
 empty(outputs('List_my_Resource_Assignments')?['body/value'])
 ```
@@ -52,7 +51,26 @@ Expand 1:N
 account_tasks($select=name)
 ```
 
+## Relate Records action in Common Data Service (Current Environment) connector
+
+This works with both one to many and many to many relationships when working in the Common Data Service.
+
+```
+[Environment URL]/api/data/v9.0/[Entity Schema Name]([GUID for the target record you’re associating])
+```
+
+Example URL payload in the attribute, using an environment "myorg" and relationship called "ctd_contact_game". The Contact is specified in a different attribute and the game GUID is "00000000-0000-0000-0000-000000000001":
+
+```
+https://myorg.crm.dynamics.com/api/data/v9.0/ctd_contact_game(00000000-0000-0000-0000-000000000001)
+```
+
+Action documentation from docs.microsoft.com - <https://docs.microsoft.com/en-us/Connectors/commondataserviceforapps/#relate-records>
+
+Web API documentation from docs.microsoft.com - <https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/webapi/associate-disassociate-entities-using-web-api>
+
 ### Links
 
-https://daytodaydynamics365.com/listing-a-users-active-resource-assignments-in-project-for-the-web-and-d365-psa-with-power-automate/
+<https://daytodaydynamics365.com/listing-a-users-active-resource-assignments-in-project-for-the-web-and-d365-psa-with-power-automate/>
 
+<https://tattooedcrmgirl.com/2019/10/30/microsoft-flow-the-relate-records-action-demystified>

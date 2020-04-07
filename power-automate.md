@@ -90,3 +90,5 @@ This is used as the value in an individual row of the Select action. The sub-arr
 <https://daytodaydynamics365.com/listing-a-users-active-resource-assignments-in-project-for-the-web-and-d365-psa-with-power-automate/>
 
 <https://tattooedcrmgirl.com/2019/10/30/microsoft-flow-the-relate-records-action-demystified>
+
+<https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language>

@@ -76,13 +76,13 @@ I faced a challenge with an array, where we were selecting fields to return in a
 When using the **Data Operations - Select** action, this expression will return the first value from a sub-array
 
 ```
-@item()?['subArrayFieldName'][0]
+@item()?['subArrayName'][0]
 ```
 
 This is used as the value in an individual row of the Select action. The sub-array in this use case was a single field. I haven't yet tested but if the sub-array had multiple fields I assume a single field's value could be isoloated with:
 
 ```
-@item()?['subArrayFieldName'][0]. columnmane
+@item()?['subArrayName'][0]. columnmane
 ```
 
 ### Links

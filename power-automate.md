@@ -69,6 +69,19 @@ Action documentation from docs.microsoft.com - <https://docs.microsoft.com/en-us
 
 Web API documentation from docs.microsoft.com - <https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/webapi/associate-disassociate-entities-using-web-api>
 
+## First item from Sub-array
+
+I faced a challenge with an array, where we were selecting fields to return in a flat table. One of the fields was an array, so we looked for an easy way to return just the first value from that sub-array.
+
+When using the **Data Operations - Select** action, this expression will return the first value from a sub-array
+
+```
+@item()?['subArrayFieldName'][0]
+```
+
+This is used as the value in an individual row of the Select action.
+
+
 ### Links
 
 <https://daytodaydynamics365.com/listing-a-users-active-resource-assignments-in-project-for-the-web-and-d365-psa-with-power-automate/>

@@ -88,6 +88,18 @@ The aggregate functions are limited to a collection of 50,000 records.  Further 
 
 Additional details on OData data aggregation can be found here: [OData Extension for Data Aggregation Version 4.0](https://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs01/odata-data-aggregation-ext-v4.0-cs01.html).  Note that Common Data Service supports only a sub-set of these aggregate methods.
 
+## Videos
+
+[Odata introduction - Jon Levesque and Ahmad Najjar on YouTube](https://youtu.be/Kj8M_hXWc88?list=PLN-cZRQeAiDWT0J1NW9sBDEXX3jkKkyjP)
+
+- What is Odata
+- What things do you use it for
+- How does this apply to Flow?
+- Operators ([29:26](https://youtu.be/Kj8M_hXWc88?list=PLN-cZRQeAiDWT0J1NW9sBDEXX3jkKkyjP&t=1766))
+- Functions ([30:05](https://youtu.be/Kj8M_hXWc88?list=PLN-cZRQeAiDWT0J1NW9sBDEXX3jkKkyjP&t=1805))
+
 ## Links
+
+[Odata website](https://www.odata.org/)
 
 [Web API Documentation on docs](https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/webapi/query-data-web-api)

@@ -85,10 +85,38 @@ This is used as the value in an individual row of the Select action. The sub-arr
 @item()?['subArrayName'][0]. columnmane
 ```
 
-### Links
+## Updating list of required fields in original JSON
+
+If you try to Parse JSON and a required field is null, the Flow will fail when run. In the Parse JSON step, modify the *required* fields by updating the *required* array in the **Schema** attribute 
+
+Here's what it looks like if you still have some required fields:
+```
+"required": [
+  "name",
+  "id"
+]
+```
+
+Here's what it looks like if you want no required fields (provided as an FYI but don't abuse this!):
+```
+"required": []
+```
+
+A Type mismatch will also cause a failure, so consider updating the output schema like the *id* attribute below if the source format is not strict:
+
+```
+"name": {string},
+"id": {},
+"description": {string} 
+```
+More on this - <https://spmaestro.com/handling-json-in-microsoft-flow/>
+
+## Links
 
 <https://daytodaydynamics365.com/listing-a-users-active-resource-assignments-in-project-for-the-web-and-d365-psa-with-power-automate/>
 
 <https://tattooedcrmgirl.com/2019/10/30/microsoft-flow-the-relate-records-action-demystified>
 
 <https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language>
+
+<https://spmaestro.com/handling-json-in-microsoft-flow/>

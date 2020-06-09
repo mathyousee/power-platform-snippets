@@ -7,3 +7,5 @@ Little snippets, functions, and code that I want to remember later.
 [Power Apps](/power-apps.md)
 
 [Odata](/odata.md)
+
+[Connectors](/connectors.md)

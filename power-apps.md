@@ -25,6 +25,16 @@ The format with sample data and additional rows can look like this:
 ClearCollect(flowSiteURL,{url:"https://make.powerapps.com",name:"Power Platform Maker Portal"},{url:"https://connectingthedata.com",name:"Connecting the Data website"});
 ```
 
+## Collect response values from a Flow
+
+At the end of a Power Automate Flow, you can return data to the app. When calling the Flow, call it as the table value for a Collection.
+
+```
+ClearCollect(varFlowResponse,FlowName.Run())
+```
+
+This won't behave correctly if you modify the Response format in the Flow after it's been added to the Power App. The collection will become a single value of *True* even though the full payload is there. The fix for this is to remove all references to the Flow, save/close the Power App, then open and re-add the Flow.
+
 ### Links
 
 [Northwind Traders Sample Data](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/northwind-install)

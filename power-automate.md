@@ -10,9 +10,11 @@ YYYY-MM-dd
 formatDateTime(utcNow(), 'yyyy-MM-dd')
 ```
 
-## Query CDS for current user
+## Query CDS User based on O365 user ID
 
-1. O365 connector Get My Profile V2
+Here's the situation: you are using Power Automate to do something that involves a User record in CDS (like assign a record), but all you know is their O365 profile. The pattern is to 
+
+1. [trigger/action that includes an O365 user record, such as [Get User Profile](https://docs.microsoft.com/en-us/Connectors/office365users/#get-user-profile-(v2)) ]
 2. Query **User** entity, filter query is:
 
 ```

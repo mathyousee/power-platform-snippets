@@ -113,6 +113,12 @@ A Type mismatch will also cause a failure, so consider updating the output schem
 ```
 More on this - <https://spmaestro.com/handling-json-in-microsoft-flow/>
 
+## Parse JSON
+
+Mini Tutorial (YouTube video) <https://www.youtube.com/watch?v=q5CruaqHaHg>
+
+Thesis on Parse JSON action in Power Automate - <http://johnliu.net/blog/2018/6/a-thesis-on-the-parse-json-action-in-microsoft-flow>
+
 ## Links
 
 <https://daytodaydynamics365.com/listing-a-users-active-resource-assignments-in-project-for-the-web-and-d365-psa-with-power-automate/>

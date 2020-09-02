@@ -38,4 +38,5 @@ This won't behave correctly if you modify the Response format in the Flow after 
 ### Links
 
 [Canvas Power Apps formula reference](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/formula-reference)
+
 [Northwind Traders Sample Data](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/northwind-install)

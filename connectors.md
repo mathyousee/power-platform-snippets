@@ -24,3 +24,4 @@ Source: <https://github.com/MicrosoftDocs/power-platform/blob/master/power-platf
 
 ## Links
 
+[Connectors Documentation on docs.microsoft.com](https://docs.microsoft.com/en-us/connectors/)

@@ -71,6 +71,30 @@ Action documentation from docs.microsoft.com - <https://docs.microsoft.com/en-us
 
 Web API documentation from docs.microsoft.com - <https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/webapi/associate-disassociate-entities-using-web-api>
 
+## Lookup relationships when using Create New Record action in Common Data Service (Current Environment) connector
+
+Couldn't find the syntax for how to relate to a record in a standard lookup for a new record. I didn't want to have to create the record, then relate the records in a separate step (stubbornness?). The value format for the lookup field is:
+
+```
+enityschemaname(recordGUID)
+```
+
+So in my particular example, I had a lookup from *Linked Activity* (Many) to *Application* (One).
+
+Getting this value in a single Flow action proved difficult, though.  I struggled to get the @odata.editLink attribute as part of a First() formula, so I used Data Operations steps to clean up the record:
+
+- Data Operation: Parse JSON - technically this is optional, but I like doing this so I can more easily snag out specific attributes
+- Data Operation: Select - all I did here was rename the @odata.editLink field to be editLink
+- Data Operation: Compose - I used a first() formula to grab the output of the Select action above
+
+I was left with:
+
+```
+ctd_applications(deaef762-d4f7-1a11-a815-000d3a8d1000)
+```
+
+...which I could use to fill in the lookup field.
+
 ## First item from Sub-array
 
 I faced a challenge with an array, where we were selecting fields to return in a flat table. One of the fields was an array, so we looked for an easy way to return just the first value from that sub-array.

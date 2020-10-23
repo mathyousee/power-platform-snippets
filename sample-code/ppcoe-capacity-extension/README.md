@@ -1,4 +1,4 @@
-# CoE - Capacity Extension solution
+# Center of Excellence - Capacity Extension solution
 
 ![Image environment storage with chart](./ppcoe-screenshot.png)
 

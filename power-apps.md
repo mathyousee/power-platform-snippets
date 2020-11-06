@@ -9,6 +9,19 @@ EN-US $2,000.00
 ```
 Text( currencyfield, "[$-en-US]$ #,###.00" )
 ```
+
+## Format with a custom date format
+
+The key to this one is to pass in a legit date/datetime value. If the source field provides the field as a *Date*, you're good to go. Use the DateValue() or DateTimeValue() function as needed to adjust the source from *Text* to *Date*
+
+```
+Text(date or datetime field, "[$-en-US] yyyy-mm-dd hh:mm:ss.fff AM/PM" )
+
+(adjust the yyyy-mm-dd... part as appropriate)
+```
+
+More comprehensive details on [docs.microsoft.com](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/show-text-dates-times)
+
 ## Create a Collection by hand
 
 When I have an app where I want to reference specific fields, but I haven't attached to a data source, I like to use a Collection as a placeholder. This allows me to use similar data to get things looking right. 

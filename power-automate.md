@@ -10,9 +10,9 @@ YYYY-MM-dd
 formatDateTime(utcNow(), 'yyyy-MM-dd')
 ```
 
-## Query CDS User based on O365 user ID
+## Query Dataverse User based on O365 user ID
 
-Here's the situation: you are using Power Automate to do something that involves a User record in CDS (like assign a record), but all you know is their O365 profile. The pattern is to 
+Here's the situation: you are using Power Automate to do something that involves a User record in Dataverse (like assign a record), but all you know is their O365 profile. The pattern is to 
 
 1. [trigger/action that includes an O365 user record, such as [Get User Profile](https://docs.microsoft.com/en-us/Connectors/office365users/#get-user-profile-(v2)) ]
 2. Query **User** entity, filter query is:
@@ -21,9 +21,9 @@ Here's the situation: you are using Power Automate to do something that involves
 azureactivedirectoryobjectid eq '[O365id]'
 ```
 
-## Get first record from a CDS List Records action
+## Get first record from a Dataverse List Records action
 
-Next up is a scope that includes list and compose actions. A list users action will get us the value for systemuserid. This is a user’s id/GUID in CDS. A filter query is used to narrow the results down to just a single record when azureactivedirectoryobjectid matches id from the Get my profile‘s output. Normally Flow will throw in an apply to each loop, when dynamic content from a list records action is used. To get around this, a compose action with a first expression is used. There is only a single record that we’re after so this trick works well. The expression used is:
+Next up is a scope that includes list and compose actions. A list users action will get us the value for systemuserid. This is a user’s id/GUID in Dataverse. A filter query is used to narrow the results down to just a single record when azureactivedirectoryobjectid matches id from the Get my profile‘s output. Normally Flow will throw in an apply to each loop, when dynamic content from a list records action is used. To get around this, a compose action with a first expression is used. There is only a single record that we’re after so this trick works well. The expression used is:
 
 ```
 first(body('List_Users_to_get_GUID')?['value']). systemuserid
@@ -37,9 +37,9 @@ Next, a condition is used to check whether or not any RAs are returned or not. I
 empty(outputs('List_my_Resource_Assignments')?['body/value'])
 ```
 
-## Get primary entity and related record information in CDS flow step
+## Get primary entity and related record information in Dataverse flow step
 
-Use the "Expand Query" property in the CDS connector
+Use the "Expand Query" property in the Dataverse connector
 
 Expand N:1
 
@@ -53,9 +53,9 @@ Expand 1:N
 account_tasks($select=name)
 ```
 
-## Relate Records action in Common Data Service (Current Environment) connector
+## Relate Records action in Dataverse (Current Environment) connector
 
-This works with both one to many and many to many relationships when working in the Common Data Service.
+This works with both one to many and many to many relationships when working in the Dataverse.
 
 ```
 [Environment URL]/api/data/v9.0/[Entity Schema Name]([GUID for the target record you’re associating])
@@ -71,7 +71,7 @@ Action documentation from docs.microsoft.com - <https://docs.microsoft.com/en-us
 
 Web API documentation from docs.microsoft.com - <https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/webapi/associate-disassociate-entities-using-web-api>
 
-## Lookup relationships when using Create New Record action in Common Data Service (Current Environment) connector
+## Lookup relationships when using Create New Record action in Dataverse (Current Environment) connector
 
 Couldn't find the syntax for how to relate to a record in a standard lookup for a new record. I didn't want to have to create the record, then relate the records in a separate step (stubbornness?). The value format for the lookup field is:
 
@@ -152,3 +152,7 @@ Thesis on Parse JSON action in Power Automate - <http://johnliu.net/blog/2018/6/
 <https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language>
 
 <https://spmaestro.com/handling-json-in-microsoft-flow/>
+
+> Effective November 2020:
+> - Common Data Service (CDS) has been renamed to Microsoft Dataverse. [Learn more](https://aka.ms/PAuAppBlog)
+> - Some terminology in Microsoft Dataverse has been updated. For example, *entity* is now *table* and *field* is now *column*. [Learn more](https://go.microsoft.com/fwlink/?linkid=2147247)

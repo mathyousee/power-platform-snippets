@@ -48,6 +48,32 @@ ClearCollect(varFlowResponse,FlowName.Run())
 
 This won't behave correctly if you modify the Response format in the Flow after it's been added to the Power App. The collection will become a single value of *True* even though the full payload is there. The fix for this is to remove all references to the Flow, save/close the Power App, then open and re-add the Flow.
 
+## Add Columns to a Collection using a LookUp to another table
+
+In the following, I'm creating a local Collection, which includes a few columns from a related table.
+
+I've already pulled the related table into a local collection *LocalFoods* so the LookUps don't get chatty with network calls to the data source.
+
+```
+ClearCollect(LocalInventory,
+    AddColumns(Filter(Inventory,Gone=false),
+        "FoodName", LookUp(LocalFoods,UPC = ParentUPC).Title,
+        "FoodSize", LookUp(LocalFoods,UPC = ParentUPC).Size,
+        "FoodSearchTags", LookUp(LocalFoods,UPC = ParentUPC).SearchTags,
+        "FoodUnits", LookUp(LocalFoods,UPC = ParentUPC).UnitsInPackage
+        )
+    );
+```
+
+Things to remember: for the LookUp, the first parameter is the "parent" table, the second parameter starts with he column I'm comparing in the second table...this gets the record. Then I returmn the specific **.Field** as the result for the column.
+
+```
+LookUp(LocalFoods,UPC = ParentUPC).Title
+         ^         ^           ^       ^
+         |         |            \       `----.
+[Parent Table] [Parent Field] [Match value] [Returned Field] 
+```
+
 ## Define and call reusable functions inside of a canvas Power App
 
 Sometimes I find myself copy/pasting the same formula (or set of formulas) to multiple components inside of a canvas Power App. I ofetn think *it's going to be a pain if I have to remember all of the places where I used this same formula if I need to update it later, I wish I could make the formula change in just one place and have the rest be magically updated*. There are different approaches to this, but I find this to be the most straightforward.

@@ -98,6 +98,47 @@ In the future, if you need to update the formulas, simply change the *fncMyFunct
 
 Credit: [Code re-usability in Power Apps](https://powerusers.microsoft.com/t5/News-Announcements/Code-re-usability-in-PowerApps-using-User-Defined-functions/ba-p/672998#)
 
+## Simple theming
+
+The Power Platform Center of Excellence starter kit includes some great theming capabilities. That said, for a lot of little skunk-works things, I'll use an approach of "simple theming".
+
+For colors, I'll define a dark and light color that work well together. I use Dark color for outlines, icons, and other things that need to stand out. I use a Light color for highlighting rows in a gallary, active selections, etc.
+
+To use these in the app, I set a variable with multiple properties:
+
+```
+Set(MyColors,
+  {
+    Dark:RGBA(102, 113, 166, 1),
+    Light:RGBA(215, 223, 240, 1)
+  }
+);
+
+```
+
+Then instead of specifying specific colors in my app, I'll reference MyColors.Dark or MyColors.Light instead of the RBGA value (or color name). 
+
+Then, later, if I want to modify the colors in my app later, I can update this one variable and it's immediately reflected throughout the app.
+
+I use the same approach for fonts, though admittedly I'm still trying to find the sweet spot of how much to define/automate this way.
+
+```
+
+Set(MyFonts,
+  {
+    HeaderFontSize:28,
+    PrimaryFontSize:24,
+    PrimaryFont:Font.'Lato Light',
+    TextBoxHeight:80
+  }
+);
+
+```
+
+To save time on setting these properties, I try to use copy/paste of a similar control that I've already treated. That said, if I have multiple components to update at once, I'll multi-select these from the navigation view, then use the formula bar to choose he property (such as Font) then set all of the selected components to MyFonts.PrimaryFont.
+
+
+
 ## Links
 
 [Canvas Power Apps formula reference](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/formula-reference)

@@ -18,6 +18,8 @@ Little snippets, functions, and code that I want to remember later.
 
 [Ultimate list of Power Platform Learning Resources](https://powerapps.microsoft.com/en-us/blog/microsoft-powerapps-learning-resources/)
 
+Adaptive cards [samples](https://adaptivecards.io/samples/) and [designer](https://adaptivecards.io/designer/)
+
 ## Sample Solutions
 
 Sample solutions that are more than just "snippets" of code. These include more assets and are intended for proof of concept, demonstration, and educational purposes.

@@ -137,7 +137,15 @@ Set(MyFonts,
 
 To save time on setting these properties, I try to use copy/paste of a similar control that I've already treated. That said, if I have multiple components to update at once, I'll multi-select these from the navigation view, then use the formula bar to choose he property (such as Font) then set all of the selected components to MyFonts.PrimaryFont.
 
+## Embed canvas Power App in an iframe (without header)
 
+I'll just leave this here...nothing special to it but I have checked this page for the format half a dozen times...time to add it!
+
+```
+https://apps.powerapps.com/play/[AppID]?source=iframe
+```
+
+Source: [https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/embed-apps-dev](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/embed-apps-dev)
 
 ## Links
 

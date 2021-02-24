@@ -95,6 +95,12 @@ ctd_applications(deaef762-d4f7-1a11-a815-000d3a8d1000)
 
 ...which I could use to fill in the lookup field.
 
+For an activity regarding field, include a forward slash in front of the schema name. For example with a Contact record:
+
+```
+/contacts(recordGUID)
+```
+
 ## First item from Sub-array
 
 I faced a challenge with an array, where we were selecting fields to return in a flat table. One of the fields was an array, so we looked for an easy way to return just the first value from that sub-array.

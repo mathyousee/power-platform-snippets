@@ -24,5 +24,5 @@ Adaptive cards [samples](https://adaptivecards.io/samples/) and [designer](https
 
 Sample solutions that are more than just "snippets" of code. These include more assets and are intended for proof of concept, demonstration, and educational purposes.
 
-- [Center of Excellence - Capacity Extension](/sample-code/ppcoe-capacity-extension/readme.md) - Extension to the Power Platform Center of Excellence Starter Kit. Track database storage targets and actual consumption.
+- [Center of Excellence - Capacity Extension](https://github.com/mathyousee/power-platform-snippets/sample-code/ppcoe-capacity-extension/readme.md) - Extension to the Power Platform Center of Excellence Starter Kit. Track database storage targets and actual consumption.
 - [Power Apps Samples (Microsoft)](https://github.com/Microsoft/PowerApps-Samples#power-apps-samples) - Github repository supporting the Power Apps Developer documentation.

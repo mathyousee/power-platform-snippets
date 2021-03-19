@@ -43,6 +43,15 @@ Extension to the Power Platform Center of Excellence Starter Kit. Track database
 
 ## Release History
 
+### 2.1.0
+
+- Environment table
+  - Added *Rated Consumption* column
+  - Adjusted consumed percentage to use *Rated Consumption* column
+  - Added *Rated Consumption* to main form
+  - Added *Rated Consumption* to capacity views
+  - Filtered capacity views to include flag for *hasCds=True*
+
 ### 2.0.0
 
 - Added *Log environment DB consumption* cloud Flow

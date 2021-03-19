@@ -7,6 +7,7 @@
 Extension to the Power Platform Center of Excellence Starter Kit. Track database storage targets and actual consumption.
 
 - Track targets/actual on a per-environment basis
+- Environment records updated with current DB consumption once daily
 - Grid-view reporting to show environments over 80% of target
 - Includes charts to show consumption.
 
@@ -38,7 +39,14 @@ Extension to the Power Platform Center of Excellence Starter Kit. Track database
 
 - Log into the **Power Platform Admin View** app
 - Navigate to the Environments -> **Active Environments with Capacity** view
-- Export to Excel Online and set values for the Data Capacity (Target…) and Data Capacity (Actual…) fields. 
-  - Note, consider using the values in the Power Platform Admin Center as a reference point.
-  - Today, this is manual, however in the future when reporting APIs are available this could be automated.
 - Save the data to CRM and wait for the import to refresh.
+
+## Release History
+
+### 2.0.0
+
+- Added *Log environment DB consumption* cloud Flow
+  - Daily recurring trigger
+  - Queries Power Platform Admin API, version 2020-10-01 with *Capacity* data preview
+  - Updates static value in Environment record
+  

@@ -102,21 +102,24 @@ Credit: [Code re-usability in Power Apps](https://powerusers.microsoft.com/t5/Ne
 
 The Power Platform Center of Excellence starter kit includes some great theming capabilities. That said, for a lot of little skunk-works things, I'll use an approach of "simple theming".
 
-For colors, I'll define a dark and light color that work well together. I use Dark color for outlines, icons, and other things that need to stand out. I use a Light color for highlighting rows in a gallary, active selections, etc.
+For colors, I'll define a few colors that I will use through the app.
 
 To use these in the app, I set a variable with multiple properties:
 
 ```
 Set(MyColors,
   {
-    Dark:RGBA(102, 113, 166, 1),
-    Light:RGBA(215, 223, 240, 1)
+    Header: RGBA(26, 150, 212, 1),
+    Primary: RGBA(130, 113, 129, 1),
+    Secondary: RGBA(102, 113, 166, 1),
+    Accent:  RGBA(26, 150, 212, 1),
+    Background: RGBA(235, 235, 235, 1),
+    Text: RGBA(48, 48, 48, 1)
   }
-);
-
+)
 ```
 
-Then instead of specifying specific colors in my app, I'll reference MyColors.Dark or MyColors.Light instead of the RBGA value (or color name). 
+Then instead of specifying specific colors in my app, I'll reference MyColors.Primary or MyColors.Light instead of the RBGA value (or color name). 
 
 Then, later, if I want to modify the colors in my app later, I can update this one variable and it's immediately reflected throughout the app.
 
@@ -124,18 +127,37 @@ I use the same approach for fonts, though admittedly I'm still trying to find th
 
 ```
 
-Set(MyFonts,
+Set(MyFont,
   {
-    HeaderFontSize:28,
-    PrimaryFontSize:24,
-    PrimaryFont:Font.'Lato Light',
-    TextBoxHeight:80
+    FaceHeader: Font.'Lato Black',
+    FaceBody: Font.'Lato Light',
+    SizeH1: 28,
+    SizeH2: 24,
+    SizeLarge: 16,
+    SizeStandard: 14,
+    SizeTiny: 12
   }
-);
+)
 
 ```
 
-To save time on setting these properties, I try to use copy/paste of a similar control that I've already treated. That said, if I have multiple components to update at once, I'll multi-select these from the navigation view, then use the formula bar to choose he property (such as Font) then set all of the selected components to MyFonts.PrimaryFont.
+This approach is also useful for other general properties that need to be set for various controls. I borrowed the target list from the Center of Excellence theme editor.
+
+```
+
+Set(myProperties,
+  {
+    TextBoxHeight: 80,
+    RadiusValue: 5,
+    PaddingValue: 8,
+    BorderThicknessValue: 0,
+    FocusedBorderThicknessValue: 0
+  }
+)
+
+```
+
+To save time on setting these properties, I try to use copy/paste of a similar control that I've already treated (in favor of adding a new one from the control library). That said, if I have multiple components to update at once, I'll multi-select these from the navigation view, then use the formula bar to choose he property (such as Font) then set all of the selected components to MyFont.FaceBody.
 
 ## Embed canvas Power App in an iframe (without header)
 

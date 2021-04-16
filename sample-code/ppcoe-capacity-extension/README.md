@@ -1,6 +1,10 @@
-# Center of Excellence - Capacity Extension solution
+# Deprecated - Center of Excellence - Capacity Extension solution
 
 ![Image environment storage with chart](./ppcoe-screenshot.png)
+
+## Deprecation announcement
+
+The Center of Excellence Starter Kit has been updated to include this functinoality out of the box!! No need to install this additional solution, but I'll keep it here for posterity.
 
 ## Summary
 

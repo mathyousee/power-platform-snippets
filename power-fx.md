@@ -22,6 +22,12 @@ Text(date or datetime field, "[$-en-US] yyyy-mm-dd hh:mm:ss.fff AM/PM" )
 
 More comprehensive details on [docs.microsoft.com](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/show-text-dates-times)
 
+## Quotation marks in text
+
+```
+"I would like ""this"" to be in quotes." // Reads: I would like "this" to be in quotes.
+```
+
 ## Create a Collection by hand
 
 When I have an app where I want to reference specific fields, but I haven't attached to a data source, I like to use a Collection as a placeholder. This allows me to use similar data to get things looking right. 

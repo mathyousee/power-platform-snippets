@@ -74,24 +74,6 @@ LookUp(LocalFoods,UPC = ParentUPC).Title
 [Parent Table] [Parent Field] [Match value] [Returned Field] 
 ```
 
-## Define and call reusable functions inside of a canvas Power App
-
-Sometimes I find myself copy/pasting the same formula (or set of formulas) to multiple components inside of a canvas Power App. I ofetn think *it's going to be a pain if I have to remember all of the places where I used this same formula if I need to update it later, I wish I could make the formula change in just one place and have the rest be magically updated*. There are different approaches to this, but I find this to be the most straightforward.
-
-### Creating the user defined function
-
-- Add a **Toggle** control to the Power App (I add to a screen that the User can't get to, similar to this approach) and set some properties:
-  - .Name: *fncMyFunction* - Set whatever function name you like
-  - .Default:  *varMyFunction* - Set the Default value to a variable name that's prefixed with *var* in place of *pre*
-  - .OnChange: [your formulas go here] - This is the part that will run every time the function is triggered
-- Wherever you want  to "call" the function, use the following:
-
-```
-Set(varMyFunction,!varMyFunction)
-```
-
-When triggered, the variable is flipped like a switch, which will trigger the *OnChange* Action property of the *fncMyFunction* Toggle control.
-
 ### Updating the user defined function
 
 In the future, if you need to update the formulas, simply change the *fncMyFunction.OnChange* Action property. All of the rest of the references can stay as they are.
@@ -160,5 +142,7 @@ Set(myProperties,
 To save time on setting these properties, I try to use copy/paste of a similar control that I've already treated (in favor of adding a new one from the control library). That said, if I have multiple components to update at once, I'll multi-select these from the navigation view, then use the formula bar to choose he property (such as Font) then set all of the selected components to MyFont.FaceBody.
 
 ## Links
+
+[Power Fx overview](https://docs.microsoft.com/en-us/power-platform/power-fx/overview)
 
 [Canvas Power Apps formula reference](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/formula-reference)

@@ -6,6 +6,8 @@ Little snippets, functions, and code that I want to remember later.
 
 [Power Apps](/power-apps.md)
 
+[Power Fx](/power-fx.md)
+
 [Power Virtual Agents (PVA)](/power-virtual-agents.md)
 
 [Odata](/odata.md)

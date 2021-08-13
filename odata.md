@@ -46,6 +46,16 @@ The Web API supports these standard OData string query functions:
 > [!NOTE]
 >  This is a sub-set of the [11.2.5.1.2 Built-in Query Functions](https://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/part1-protocol/odata-v4.0-errata02-os-part1-protocol-complete.html). `Date`, `Math`, `Type`, `Geo` and other string functions aren’t supported in the web API.  
   
+### Checking for null or non-null values
+
+In the Odata filter, there's a nuance to filtering on null values. The "null" expression from the assistant is not needed. Instead, just use plain text in the odata query.
+
+The following example will include rows where *ctd_myfield* contains data
+
+```
+ctd_myfield ne null
+```
+  
 ### Dataverse Web API query functions
  
 Dataverse provides a number of special functions that accept parameters, return Boolean values, and can be used as filter criteria in a query. See <xref:Microsoft.Dynamics.CRM.QueryFunctionIndex> for a list of these functions. The following is an example of the <xref href="Microsoft.Dynamics.CRM.Between?text=Between Function" /> searching for accounts with a number of employees between 5 and 2000.  

@@ -19,7 +19,7 @@ References for Odata filters
 |`ne`|Not Equal|`revenue ne 100000`|  
 |`gt`|Greater than|`revenue gt 100000`|  
 |`ge`|Greater than or equal|`revenue ge 100000`|  
-|`lt`|Less than|`revenue lt 100000`|  
+|`lt`|Less than|`revenue lt 100000` <br />`enddate lt utcnow()` (comparisons work with dates)|  
 |`le`|Less than or equal|`revenue le 100000`|  
 |**Logical Operators**|||  
 |`and`|Logical and|`revenue lt 100000 and revenue gt 2000`|  

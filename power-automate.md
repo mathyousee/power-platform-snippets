@@ -143,7 +143,7 @@ A Type mismatch will also cause a failure, so consider updating the output schem
 ```
 More on this - <https://spmaestro.com/handling-json-in-microsoft-flow/>
 
-## Expand query for Dataverse connector
+## Expand query for Dataverse connector, find related lookup record
 
 Expand lookup fields to get the fields you actually care about. For example, if you list Contacts and want the Parent Account name, you could add this to the expand query field:
 
@@ -158,6 +158,24 @@ first(outputs('List_rows')?['body/value'])?['parentcustomerid_account']?['name']
 ```
 
 Note, that the "first" is just the row, then outside (after) the first() function. Also, the expanded value is an object and you need to get the specific field, even though you only expanded one field.
+
+Note, a single property didn't need to be selected, in fact all of the related fields could be expanded by just calling the relationship name *without* using the `$select` system query option.
+
+``` odata
+parentcustomerid_account()
+```
+
+Multiple levels of $expand lookup are possible, but limit of 10 $expand (up or down) per query).
+
+More details are here: [MS Docs](https://docs.microsoft.com/en-us/power-automate/dataverse/list-rows)
+
+## Expand query for Dataverse connector, find related many records
+
+
+
+Multiple levels of $expand lookup are possible, but limit of 10 $expand (up or down) per query).
+
+https://docs.microsoft.com/en-us/powerapps/developer/data-platform/webapi/retrieve-related-entities-query
 
 ## Parse JSON
 

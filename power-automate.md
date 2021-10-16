@@ -143,6 +143,22 @@ A Type mismatch will also cause a failure, so consider updating the output schem
 ```
 More on this - <https://spmaestro.com/handling-json-in-microsoft-flow/>
 
+## Expand query for Dataverse connector
+
+Expand lookup fields to get the fields you actually care about. For example, if you list Contacts and want the Parent Account name, you could add this to the expand query field:
+
+``` odata
+parentcustomerid_account($select=name)
+```
+
+Then let's say, perhaps you listed multiple Contacts (and their related account names), but later in the flow you just want to grab the first one. You can grab the related account name for the first Contact record with an expression like this:
+
+``` odata
+first(outputs('List_rows')?['body/value'])?['parentcustomerid_account']?['name']
+```
+
+Note, that the "first" is just the row, then outside (after) the first() function. Also, the expanded value is an object and you need to get the specific field, even though you only expanded one field.
+
 ## Parse JSON
 
 Mini Tutorial (YouTube video) <https://www.youtube.com/watch?v=q5CruaqHaHg>

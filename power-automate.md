@@ -171,9 +171,19 @@ More details are here: [MS Docs](https://docs.microsoft.com/en-us/power-automate
 
 ## Expand query for Dataverse connector, find related many records
 
+This is very similar to expanding a lookup record. Here's an example of getting the Contacts associated with an Account:
 
+```odata
+contact_customer_accounts
+```
 
-Multiple levels of $expand lookup are possible, but limit of 10 $expand (up or down) per query).
+You can select individual columns when expanding many records as well. The following example gets the *fullname* column for all Contacts related to an Account. 
+
+```odata
+contact_customer_accounts($select=fullname)
+```
+
+Even though it's only a single column that's been selected, it's returned as an object with some additional fields (such as *contactid* in the example above).
 
 https://docs.microsoft.com/en-us/powerapps/developer/data-platform/webapi/retrieve-related-entities-query
 

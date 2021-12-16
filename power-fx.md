@@ -235,6 +235,18 @@ Calling from the **Record form**:
 - Set the function name `openFullPageFromItem`
 - Add a parameter: *FirstPrimaryItemId*
 
+### Handle command navigation parameter in Canvas Page
+
+The parameter that gets passed to the page has a slightly different format, it may include curly braces {}, so when consuming the parameter, make sure to strip out the braces in most cases. Example formula is below.
+
+```
+Set(RecordItem, 
+    If(IsBlank(Param("recordId")),
+        First('Table'),
+        LookUp('Table', 'RecordId' = GUID(Substitute(Substitute(Param("recordId"),"{",""),"}",""))))
+    )
+```
+
 ## Links
 
 [Power Fx overview](https://docs.microsoft.com/en-us/power-platform/power-fx/overview)

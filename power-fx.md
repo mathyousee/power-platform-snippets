@@ -158,17 +158,82 @@ There's probably a more elegant way to use a single JavaScript function, but hey
 The following must be uploaded as a JavaScript web resource. It hard codes the page name for simple build, but I'm sure there's something more elegant that someone can come up with to pass it in as a parameter to the function.
 
 ``` js
-function()
-{goes here}
+function openFullPageFromGrid(selectedItems)
+{
+    let selectedItem = selectedItems[0];
+
+    if (selectedItem) {     
+        let pageInput = {
+            pageType: "custom",
+            name: "ctd_custompagelogicalname_35171",
+            entityName: selectedItem.TypeName,
+            recordId: selectedItem.Id,
+        };
+        let navigationOptions = {
+            target: 1
+        };
+        Xrm.Navigation.navigateTo(pageInput, navigationOptions)
+            .then(
+                function () {
+                    // Handle success
+                }
+            ).catch(
+                function (error) {
+                    // Handle error
+                }
+            );
+    }
+}
+
+function openFullPageFromItem(selectedItem)
+{
+// Inline Page
+var pageInput = {
+    pageType: "custom",
+    name: "ctd_custompagelogicalname_35171",
+    entityName: "ctd_table",
+    recordId: selectedItem,
+};
+var navigationOptions = {
+    target: 1
+};
+Xrm.Navigation.navigateTo(pageInput, navigationOptions)
+    .then(
+        function () {
+            // Called when page opens
+        }
+    ).catch(
+        function (error) {
+            // Handle error
+        }
+    );
+
+}
 ```
 
-Calling from the Grid:
+Calling from the **Main grid**:
 
 - Open the Navigation editor
 - *Make sure the Power Fx formula for **OnSelect** is cleared out*
 - Choose action type of JavaScript
 - Set the appropriate library
-- Set the 
+- Set the function name `openFullPageFromGrid`
+- Add a parameter: *SelectedControlSelectedItemRecord*
+
+Note, I'm also including a rule to only show the button when a single record is selected.
+
+``` PowerFx
+CountRows(Self.Selected.AllItems) = 1
+```
+
+Calling from the **Record form**:
+
+- Open the Navigation editor
+- *Make sure the Power Fx formula for **OnSelect** is cleared out*
+- Choose action type of JavaScript
+- Set the appropriate library
+- Set the function name `openFullPageFromItem`
+- Add a parameter: *FirstPrimaryItemId*
 
 ## Links
 

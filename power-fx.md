@@ -147,6 +147,29 @@ Set(myProperties,
 
 To save time on setting these properties, I try to use copy/paste of a similar control that I've already treated (in favor of adding a new one from the control library). That said, if I have multiple components to update at once, I'll multi-select these from the navigation view, then use the formula bar to choose he property (such as Font) then set all of the selected components to MyFont.FaceBody.
 
+## Navigation Commands
+
+JavaScript is supported as well, so there are some functions included below as well.
+
+### Navigate to Page from Grid or Record
+
+There's probably a more elegant way to use a single JavaScript function, but hey, it works :)
+
+The following must be uploaded as a JavaScript web resource. It hard codes the page name for simple build, but I'm sure there's something more elegant that someone can come up with to pass it in as a parameter to the function.
+
+``` js
+function()
+{goes here}
+```
+
+Calling from the Grid:
+
+- Open the Navigation editor
+- *Make sure the Power Fx formula for **OnSelect** is cleared out*
+- Choose action type of JavaScript
+- Set the appropriate library
+- Set the 
+
 ## Links
 
 [Power Fx overview](https://docs.microsoft.com/en-us/power-platform/power-fx/overview)

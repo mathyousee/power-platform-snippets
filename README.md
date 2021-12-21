@@ -14,6 +14,8 @@ Little snippets, functions, and code that I want to remember later.
 
 [Connectors](/connectors.md)
 
+[CLI](/cli.md)
+
 ## Links
 
 [Power Platform Guidance (Adoption and CoE on docs.microsoft.com)](https://docs.microsoft.com/en-us/power-platform/guidance/)

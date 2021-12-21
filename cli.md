@@ -1,10 +1,12 @@
 # Power Platform CLI
 
-References I want to remember for later. 
+The CLI is not a typical Citizen Developer topic, nor do they have a direct need for it. That said, I am right on the line of Citizen Dev and Pro Dev (Pro Dev Light? Deputized Citizen Dev?) and have found ways to make the Power Platform CLI useful for my builds.
 
-FWIW I keep most of these in a PowerShell file in VSCode and run them from the integrated console. There are definitely other ways to do it but that's what works for me (as a basic PowerShell / CLI user). In case you want that file, I'm linking it here: 
+Typically, I use this to grab point-in-time updates of the configuration I do via the Power Apps maker portal, so they can be part of a larger process and provide better visibility for if/when IT wants to take over (or at least have more oversight of what I'm doing).
 
-## Install and update to latest version
+FWIW I keep most of these in a PowerShell file in VSCode and run them from the integrated console. There are definitely other ways to do it but that's what works for me (as a basic PowerShell / CLI user). In case you want that file, let me know via a GitHub issue and I'll upload it ;) 
+
+## Install Power Platform CLI and update to latest version
 
 I installed from VS Code by going to the Extensions marketplace and installing **Power Platform Tools** (the name has changed from the docs below) from the Microsoft publisher.
 
@@ -18,7 +20,8 @@ Official documentation: https://docs.microsoft.com/en-us/powerapps/developer/dat
 
 ##  Authenticate and connect to Dataverse organization
 
-This will get you started by connecting to a specific Environment. It will also add the environment to your `auth list`
+This will get you started by connecting to a specific Environment. An Office 365 login window will be displayed, which allows login with a username/password and two-factor if needed. 
+
 
 Format: 
 
@@ -30,15 +33,29 @@ Here's an example (not a real URL):
 pac auth create --kind DATAVERSE --url https://org12345.crm.dynamics.com/ --name FancyEnvName
 ```
 
-## Confirm the environment what I'm currently connected to
+The environment will be added to your to your list of connection profiles, which you can view with the command
 
-Use this to validate the environment before you interact with the API
+```
+pac auth list
+```
+
+this will return something like this:
+
+```
+Profiles (* indicates active):
+   [1] * ADMIN                                    https://service.powerapps.com/           : matt@example.org                      Public
+   [2] * DATAVERSE AnchorheadDev                  https://orge1111111.crm.dynamics.com/    : matt@example.org                      Public
+```
+
+In the above example, the number in brackets `[1]` is the *ID* for the profile.
+
+If you have more than one connection profile, you can use this to validate the environment before you interact with the API
 
 ```
 pac org who
 ```
 
-Which will return something like (though these are fake IDs and URLs):
+Which will return something like this (though these are fake IDs and URLs):
 
 ```
 Connected to...Development
@@ -50,6 +67,14 @@ Organization Information
   User ID:                    matt@example.com (f123456c-311c-ec11-b3e4-001d3a9d24n4)
   Environment ID:             11f8c533-c9ee-4e61-be7b-d04c3126b1c2
 ```
+
+To change to another connection profile, use the `pac auth list` command to view your list, then change by using:
+
+```
+pac auth select --index 1
+```
+
+The above example will change to the connection profile with the ID of 1
 
 ## Clone a solution definition to the current folder
 

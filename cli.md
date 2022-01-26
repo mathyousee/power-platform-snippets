@@ -122,7 +122,83 @@ pac solution export --path ${solutionDir}${solutionName}-${solutionVersion}_mana
 
 Regarding the `version` variable: All of the version validation is stored inside of the package...this is just a label.
 
- I'm sure there's a more elegant way to set the version number based on the solution version in Dataverse...I'm welcome to that feedback via a GitHub issue or Pull Request :) 
+ I'm sure there's a more elegant way to set the version number based on the solution version in Dataverse...I'm welcome to that feedback via a GitHub issue or Pull Request :)
+
+## Export solution and unpack so it is usable in source control
+
+The .zip file format of the solution is useful for citizen developers to import packages to other enviornments, however from a source control perspective it's more valuable to unpack that .zip file so individual changes can be reviewed/understood later. CLI offers us this capability. I'll start with my script, then describe the different steps.
+
+``` powershell
+
+$srcDir = "C:\mypath\"
+$solutionName = "myFancySolution"
+
+pac solution export --path ${srcDir}tmp\${solutionName}.zip --name $solutionName --managed false
+pac solution unpack --zipfile ${srcDir}tmp\${solutionName}.zip --folder ${srcDir}\${solutionName} --allowWrite true
+
+Get-ChildItem -Path ${srcDir}${solutionName}\CanvasApps\ -Filter *.msapp |
+
+Foreach-Object {
+
+    $msappFile = $_.Name
+    pac canvas unpack --msapp ${srcDir}${solutionName}\CanvasApps\${msappFile} --sources ${srcDir}\${solutionName}-UnpackedCanvas\$msappFile
+
+
+}
+
+Remove-Item -path ${srcDir}tmp\${solutionName}.zip
+
+```
+
+Before running, I set the srcDir and solutionName variables based on what I'm going to export.
+
+The first chunk exports the solution, then unpacks the contents of the .zip to a /source sub-folder named after the solution.
+
+```powershell
+pac solution export --path ${srcDir}tmp\${solutionName}.zip --name $solutionName --managed false
+pac solution unpack --zipfile ${srcDir}tmp\${solutionName}.zip --folder ${srcDir}\${solutionName} --allowWrite true
+```
+
+This next bit looks for any canvas apps or canvas pages (.msapp) and unpacks those to the /source folder, with each component having its own subfolder.
+
+```powershell
+Get-ChildItem -Path ${srcDir}${solutionName}\CanvasApps\ -Filter *.msapp |
+
+Foreach-Object {
+
+    $msappFile = $_.Name
+    pac canvas unpack --msapp ${srcDir}${solutionName}\CanvasApps\${msappFile} --sources ${srcDir}\${solutionName}-UnpackedCanvas\$msappFile
+
+
+}
+```
+
+Then I remove the .zip file that I unpacked (it's nice to tidy up after yourself).
+
+In the future, to take advantage of change tracking, it's necessary to delete the items in the source folder before unpacking/overwriting. For this, I use the following:
+
+```powershell
+$srcDir = "C:\mypath\"
+$solutionName = "myFancySolution"
+
+pac solution export --path ${srcDir}tmp\${solutionName}.zip --name $solutionName --managed false
+Remove-Item -path ${srcDir}\${solutionName} -Recurse
+pac solution unpack --zipfile ${srcDir}tmp\${solutionName}.zip --folder ${srcDir}\${solutionName} --allowWrite true
+Remove-Item -path ${srcDir}tmp\${solutionName}.zip
+
+Get-ChildItem -Path ${srcDir}${solutionName}\CanvasApps\ -Filter *.msapp |
+
+Foreach-Object {
+
+    $msappFile = $_.Name
+    Remove-Item -path ${srcDir}${solutionName}-UnpackedCanvas\${msappFile} -Recurse
+    pac canvas unpack --msapp ${srcDir}${solutionName}\CanvasApps\${msappFile} --sources ${srcDir}\${solutionName}-UnpackedCanvas\$msappFile
+
+
+}
+```
+
+Ideally this script should be enhanced to remove any canvas source. I have an idea for this but haven't had the time to implement/test it, but when I do you can expect an update.
 
 ## Links
 

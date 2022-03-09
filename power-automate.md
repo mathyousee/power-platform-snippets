@@ -197,6 +197,8 @@ Thesis on Parse JSON action in Power Automate - <http://johnliu.net/blog/2018/6/
 
 <https://daytodaydynamics365.com/listing-a-users-active-resource-assignments-in-project-for-the-web-and-d365-psa-with-power-automate/>
 
+<https://crmtipoftheday.com/pages/power-automate-gymnastics-reference-guide/>
+
 <https://tattooedcrmgirl.com/2019/10/30/microsoft-flow-the-relate-records-action-demystified>
 
 <https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language>

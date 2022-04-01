@@ -79,6 +79,7 @@ Couldn't find the syntax for how to relate to a record in a standard lookup for 
 enityschemaname(recordGUID)
 ```
 
+
 So in my particular example, I had a lookup from *Linked Activity* (Many) to *Application* (One).
 
 Getting this value in a single Flow action proved difficult, though.  I struggled to get the @odata.editLink attribute as part of a First() formula, so I used Data Operations steps to clean up the record:
@@ -100,6 +101,31 @@ For an activity regarding field, include a forward slash in front of the schema 
 ```
 /contacts(recordGUID)
 ```
+
+### Plural names for Dataverse tables ending in -y
+
+I have found that there is some spelling logic used behind the scenes when creating a custom table that ends in **y**. 
+
+A table with the table name of **Stay** and the plural name of **Stays**, resulted in a database schema name of `ctd_stay` had the plural schema name of `ctd_staies`. This was definitely unexpected, but fortunately I was able to track it down with some troubleshooting.
+
+So in that instance, referencing the related record used the following:
+
+```
+ctd_staies(recordGUID)
+```
+
+### Setting a Case regarding a Patient via the Dataverse Create Record action
+
+I found that when working when the Microsoft Cloud for Healthcare data model, there are some additional relationships to set the Patient associated to a Case record.
+
+Out of the box, the action shows a required field of *Patient (Contact)*. Note, there is an additional field in the action for *Patient (Contact)* which also needs to be populated.
+
+The format for these are:
+
+| Create Case column   | Odata value           |
+|----------------------|-----------------------|
+| * Patient (Contacts) | /contacts(recordGUID) |
+| Patient (Contacts)   | contacts(recordGUID)  |
 
 ## First item from Sub-array
 

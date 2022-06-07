@@ -129,12 +129,12 @@ Then, later, if I want to modify the colors in my app later, I can update this o
 
 Those who have followed this resource probably saw a variant on this with far fewer colors. While this is definitely a lot more to choose from, it's not really so complex. I explored some more of the Fluent UI theme designer web app "semantic slots" detail and came up with my most important subset of colors:
 
-- themePrimary - Used for links, button backgrounds, icons, and headers
-- neutralPrimary - used for primary text
-- white - used for backgrounds, button text,  (note this is note necessarily white, but instead is the "Background Color" in the theme designer, but black always seems to be Black)
-- neutralLight - used for many element borders, also menu/list item backgrounds on hover
-- themeDark - used for button hover/press colors
-- neutralTertiary - used for many disabled elements. Note, this is an oversimplification but close enough for my apps
+- **themePrimary** - Used for links, button backgrounds, icons, and headers
+- **neutralPrimary** - used for primary text
+- **white** - used for backgrounds, button text,  (note this is note necessarily white, but instead is the "Background Color" in the theme designer, but black always seems to be Black)
+- **neutralLight** - used for many element borders, also menu/list item backgrounds on hover
+- **themeDark** - used for button hover/press colors
+- **neutralTertiary** - used for many disabled elements. Note, this is an oversimplification but close enough for my apps
 
 I use the same approach for fonts, though admittedly I'm still trying to find the sweet spot of how much to define/automate this way. Note, I haven't updated the AppTheme variable to include fonts, but the template apps aren't expecting it either.
 

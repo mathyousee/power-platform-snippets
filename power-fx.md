@@ -88,30 +88,55 @@ Credit: [Code re-usability in Power Apps](https://powerusers.microsoft.com/t5/Ne
 
 ## Simple theming
 
-The Power Platform Center of Excellence starter kit includes some great theming capabilities. That said, for a lot of little skunk-works things, I'll use an approach of "simple theming".
-
-For colors, I'll define a few colors that I will use through the app.
+The [Power Platform Creator Kit](https://docs.microsoft.com/en-us/power-platform/guidance/creator-kit/overview) includes a theme designer (which is verrrrrry similar to this [Fluent UI Theme Designer](https://fluentuipr.z22.web.core.windows.net/heads/master/theming-designer/index.html)).
 
 To use these in the app, I set a variable with multiple properties:
 
 ```
-Set(MyColors,
-  {
-    Header: RGBA(26, 150, 212, 1),
-    Primary: RGBA(130, 113, 129, 1),
-    Secondary: RGBA(102, 113, 166, 1),
-    Accent:  RGBA(26, 150, 212, 1),
-    Background: RGBA(235, 235, 235, 1),
-    Text: RGBA(48, 48, 48, 1)
+Set(AppTheme,
+  { palette: 
+    { 
+        themePrimary: "#0078d4", 
+        themeLighterAlt: "#eff6fc", 
+        themeLighter: "#deecf9", 
+        themeLight: "#c7e0f4", 
+        themeTertiary: "#71afe5", 
+        themeSecondary: "#2b88d8", 
+        themeDarkAlt: "#106ebe", 
+        themeDark: "#005a9e", 
+        themeDarker: "#004578", 
+        neutralLighterAlt: "#faf9f8", 
+        neutralLighter: "#f3f2f1", 
+        neutralLight: "#edebe9", 
+        neutralQuaternaryAlt: "#e1dfdd", 
+        neutralQuaternary: "#d0d0d0", 
+        neutralTertiaryAlt: "#c8c6c4", 
+        neutralTertiary: "#a19f9d", 
+        neutralSecondary: "#605e5c", 
+        neutralPrimaryAlt: "#3b3a39", 
+        neutralPrimary: "#323130", 
+        neutralDark: "#201f1e", 
+        black: "#000000", 
+        white: "#ffffff"
+    }
   }
 )
 ```
 
-Then instead of specifying specific colors in my app, I'll reference MyColors.Primary or MyColors.Light instead of the RBGA value (or color name). 
+Then instead of specifying specific colors in my app, I'll reference AppTheme.pallete.themePrimary or AppTheme.pallete.neutralPrimary instead of the RBGA value (or color name). Also, this works with the Template apps.
 
 Then, later, if I want to modify the colors in my app later, I can update this one variable and it's immediately reflected throughout the app.
 
-I use the same approach for fonts, though admittedly I'm still trying to find the sweet spot of how much to define/automate this way.
+Those who have followed this resource probably saw a variant on this with far fewer colors. While this is definitely a lot more to choose from, it's not really so complex. I explored some more of the Fluent UI theme designer web app "semantic slots" detail and came up with my most important subset of colors:
+
+- themePrimary - Used for links, button backgrounds, icons, and headers
+- neutralPrimary - used for primary text
+- white - used for backgrounds, button text,  (note this is note necessarily white, but instead is the "Background Color" in the theme designer, but black always seems to be Black)
+- neutralLight - used for many element borders, also menu/list item backgrounds on hover
+- themeDark - used for button hover/press colors
+- neutralTertiary - used for many disabled elements. Note, this is an oversimplification but close enough for my apps
+
+I use the same approach for fonts, though admittedly I'm still trying to find the sweet spot of how much to define/automate this way. Note, I haven't updated the AppTheme variable to include fonts, but the template apps aren't expecting it either.
 
 ```
 

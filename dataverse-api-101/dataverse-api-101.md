@@ -20,9 +20,9 @@ One can make an HTTP POST request with the following characteristics to receive 
 - HTTP Method: `POST`
 - URL: `https://login.windows.net/common/oauth2/token`
 - Body: `x-www-form-urlencoded` format with the following values:
-    - `grant_type`:`password`
-    - `client_id`:`51f81489-12ee-4a9e-aaae-a2591f45987d`
-    - `resource`:*(the URL of your Dataverse environment)*
+    - `grant_type`: `password`
+    - `client_id`: `51f81489-12ee-4a9e-aaae-a2591f45987d`
+    - `resource`: *(the URL of your Dataverse environment)*
     - `username`: *(your username)*
     - `password`: *(your password)*
 

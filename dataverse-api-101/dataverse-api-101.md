@@ -64,3 +64,52 @@ Open your browser's developer tools (I am using Microsoft Edge) with Ctrl+Shift+
 In each request we make via Postman, we must provide this value in the headers, labeled as `cookie`. Open a new request in Postman. Add this value to the headers with the label `cookie`, like below:
 
 ![adding cookie](./img/cookie-header.png)
+
+## The OData Protocol
+The Dataverse API follows the standards described by the [Open Data Protocol ("OData")](https://www.odata.org/). OData is a set of best practices for building and consuming RESTful API's. Breaking this down, this means that the Dataverse API follows a standard that makes querying easy and understandable, with a format of which is almost universally understood. Some of the features of OData include:
+- `$filter`: filtering results
+- `$select`: selecting only specific fields to be returned
+- `$orderby`: sorting the returned results
+- `$count`: receiving a count of the queried records
+- `$top`: limiting the number of records returned
+Each of the parameters above can be passed into the query URL in a read request to the Dataverse API. For more information about OData: [OData queries](https://docs.microsoft.com/en-us/odata/concepts/queryoptions-overview).
+
+## Dataverse Read Operation
+Now that we have a request in Postman equipped with the necessary data to authenticate, we can begin making calls! 
+
+### List Tables
+Firstly, make a `GET` request (the drop down near the URL in Postman) to the following URL: `https://org9442ae7b.crm.dynamics.com/api/data/v9.0` (obviously replacing `org9442ae7b` with your org name).
+
+If successful, you will receive back a list of tables in your Dataverse instance. It will look like this (this is truncated, but you get the point):
+```
+{
+    "@odata.context": "https://org9442ae7b.crm.dynamics.com/api/data/v9.0/$metadata",
+    "value": [
+        {
+            "name": "accounts",
+            "kind": "EntitySet",
+            "url": "accounts"
+        },
+        {
+            "name": "contacts",
+            "kind": "EntitySet",
+            "url": "contacts"
+        },
+        {
+            "name": "phonecalls",
+            "kind": "EntitySet",
+            "url": "phonecalls"
+        },
+        ...
+```
+In each object in the `value` property, we can see the name of the table, the type, and the `url` to access the data in the table.
+
+### Read a Table
+To get a list of records (data) that exist in each table, simply append one of the `url` properties to the URL that we used above to list the tables. For example, to get contacts: `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/contacts`.
+
+The response will return **every field** of **every record** in the contacts table. To limit the number of responses we get to 5, you can append `$top=5` to the URL as a parameter, like so: `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/contacts?$top=5`.
+
+You just appended an OData parameter to your URL! By stacking the OData parameters mentioned earlier, you can create more complex queries.
+
+### Read a single record
+If we know the GUID ("Global Unique Identifier", a primary key) of a single record in a table, you can request data for *only* that record by including it in paranthesis. For example, requesting a single record with ID `8e27ee97-cbe1-ec11-bb3d-00224803b8c6` from the contacts table: `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/contacts(8e27ee97-cbe1-ec11-bb3d-00224803b8c6)`. You will see that the response does not return an *array* of objects, but rather a single object.

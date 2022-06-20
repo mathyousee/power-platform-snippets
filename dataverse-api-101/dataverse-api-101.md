@@ -80,7 +80,7 @@ Now that we have a request in Postman equipped with the necessary data to authen
 ### List Tables
 Firstly, make a `GET` request (the drop down near the URL in Postman) to the following URL: `https://org9442ae7b.crm.dynamics.com/api/data/v9.0` (obviously replacing `org9442ae7b` with your org name).
 
-If successful, you will receive back a list of tables in your Dataverse instance. It will look like this (this is truncated, but you get the point):
+If successful, you will receive back a list of tables in your Dataverse instance, in Javascript Object Notation (JSON) format. It will look like this (this is truncated, but you get the point):
 ```
 {
     "@odata.context": "https://org9442ae7b.crm.dynamics.com/api/data/v9.0/$metadata",
@@ -113,3 +113,30 @@ You just appended an OData parameter to your URL! By stacking the OData paramete
 
 ### Read a single record
 If we know the GUID ("Global Unique Identifier", a primary key) of a single record in a table, you can request data for *only* that record by including it in paranthesis. For example, requesting a single record with ID `8e27ee97-cbe1-ec11-bb3d-00224803b8c6` from the contacts table: `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/contacts(8e27ee97-cbe1-ec11-bb3d-00224803b8c6)`. You will see that the response does not return an *array* of objects, but rather a single object.
+
+## Dataverse Write Operation
+In addition to reading from Dataverse, we can also use the Web API for *writing* to Dataverse.
+
+### Creation of a new record
+Make a new request in Postman. Add the necessary authentication data, as described above in the **Authenticate** section. Set the HTTP method to `POST` and set your target URL to `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/accounts` (obviously replacing `org9442ae7b` with your org name). This means our intention is to **create** a new **account** record.
+
+Navigate to the *Body* column. Select *raw* as the body type, and *JSON* as the format. The Dataverse Web API accepts the data of the record in JSON format. To set the name of the account we would like to save, set the body to the following:
+```
+{
+    "name":"Stark Industries"
+}
+```
+Hit send! If you receive a `204 No Content` response, you have succeeded. Pull up the list of accounts in a model-drvien app and now you should see your new account has been made.
+![create new record](./img/post.png)
+
+### Update a Record
+As per the OData standard, we can only update a single record at a time via the Dataverse Web API. To do this, we *must* know the GUID (primary key) value of the record we wish to update. For example, changing the name of the account record with ID `a33dd8e6-b6f0-ec11-bb3d-000d3a357ea4`:
+- Set the HTTP method to `PATCH`
+- Set the URL to `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/accounts(a33dd8e6-b6f0-ec11-bb3d-000d3a357ea4)` (obviously replacing `org9442ae7b` with your org name)
+- Similar to above, set the *Body* of your request to *raw* and the format to *JSON* with the following content:
+```
+{
+    "name":"Tesla Inc"
+}
+```
+After sending this request, you will again receive a `204 No Content` response if the update was successful. If you make a read call for the accounts table using the methods outlined earlier, you should see your change reflected.

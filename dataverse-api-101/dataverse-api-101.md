@@ -117,7 +117,7 @@ If we know the GUID ("Global Unique Identifier", a primary key) of a single reco
 ## Dataverse Write Operation
 In addition to reading from Dataverse, we can also use the Web API for *writing* to Dataverse.
 
-### Creation of a new record
+### Create a New Record
 Make a new request in Postman. Add the necessary authentication data, as described above in the **Authenticate** section. Set the HTTP method to `POST` and set your target URL to `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/accounts` (obviously replacing `org9442ae7b` with your org name). This means our intention is to **create** a new **account** record.
 
 Navigate to the *Body* column. Select *raw* as the body type, and *JSON* as the format. The Dataverse Web API accepts the data of the record in JSON format. To set the name of the account we would like to save, set the body to the following:
@@ -132,7 +132,7 @@ Hit send! If you receive a `204 No Content` response, you have succeeded. Pull u
 ### Update a Record
 As per the OData standard, we can only update a single record at a time via the Dataverse Web API. To do this, we *must* know the GUID (primary key) value of the record we wish to update. For example, changing the name of the account record with ID `a33dd8e6-b6f0-ec11-bb3d-000d3a357ea4`:
 - Set the HTTP method to `PATCH`
-- Set the URL to `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/accounts(a33dd8e6-b6f0-ec11-bb3d-000d3a357ea4)` (obviously replacing `org9442ae7b` with your org name)
+- Set the URL to `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/accounts(a33dd8e6-b6f0-ec11-bb3d-000d3a357ea4)` (obviously replacing `org9442ae7b` with your org name and `a33dd8e6-b6f0-ec11-bb3d-000d3a357ea4` with a GUID of a record in your account table)
 - Similar to above, set the *Body* of your request to *raw* and the format to *JSON* with the following content:
 ```
 {
@@ -140,3 +140,13 @@ As per the OData standard, we can only update a single record at a time via the 
 }
 ```
 After sending this request, you will again receive a `204 No Content` response if the update was successful. If you make a read call for the accounts table using the methods outlined earlier, you should see your change reflected.
+
+## Delete a Record
+So far we've seen how to **create** a record, **read** a record, and **update** a record. Finally, we will explore how you can **delete** a record. Just like with update requests, the OData standard does not allow for deletion of multiple records in a single request. Thus, again, we must know the GUID of the record we would like to delete. For example, deletion of the account record with ID `a33dd8e6-b6f0-ec11-bb3d-000d3a357ea4`:
+- Set the HTTP method to `DELETE`
+- Set the URL to `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/accounts(a33dd8e6-b6f0-ec11-bb3d-000d3a357ea4)` (obviously replacing `org9442ae7b` with your org name and `a33dd8e6-b6f0-ec11-bb3d-000d3a357ea4` with a GUID of a record in your account table)
+    - Note that this is the same URL that we used above for the update. The *only* difference between the update and delete operation is the HTTP method used.
+
+Unlike the update operation, we obviously will not need to provide content in the request Body because this is merely a delete operation - no data should be changed. Be sure you have *none* selected under the *Body* tab.
+
+After specifying the above in your request, press send. If you receive a `204 No Content` response, this means your delete request was successful. The targeted record with the ID that you specified is now deleted.

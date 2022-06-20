@@ -104,7 +104,7 @@ If successful, you will receive back a list of tables in your Dataverse instance
 ```
 In each object in the `value` property, we can see the name of the table, the type, and the `url` to access the data in the table.
 
-### Read a Table
+### Read records from a table
 To get a list of records (data) that exist in each table, simply append one of the `url` properties to the URL that we used above to list the tables. For example, to get contacts: `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/contacts`.
 
 The response will return **every field** of **every record** in the contacts table. To limit the number of responses we get to 5, you can append `$top=5` to the URL as a parameter, like so: `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/contacts?$top=5`.

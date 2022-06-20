@@ -53,7 +53,7 @@ We must supply this value as a *Bearer Token*, a specific format for providing a
 ### Using Cookies from your Browser
 When you are logged into a part of the Power Platform - say Power Apps, for example, a cookie will be added to your browsing session so you don't have to re-authenticate on *every* page! We are actually able to "intercept" this cookie from the web browser and use this in our requests.
 
-To get this cookie, we first need to know the URL of your dataverse environment. From the Power Platform Admin Center, open your environment. Your will find this URL listed as the **Environment URL**. For example, mine looks like this: https://org56f8d45d.crm.dynamics.com/.
+To get this cookie, we first need to know the URL of your Dataverse environment. From the Power Platform Admin Center, open your environment. Your will find this URL listed as the **Environment URL**. For example, mine looks like this: https://org56f8d45d.crm.dynamics.com/.
 
 Append `/api/data/v9.0/` to this environment URL, so it looks like this: `https://org56f8d45d.crm.dynamics.com/api/data/v9.0/`. From your authenticated browser session, navigate to this URL. You should receive a list of tables that exist in this environment. 
 
@@ -80,7 +80,7 @@ Now that we have a request in Postman equipped with the necessary data to authen
 ### List Tables
 Firstly, make a `GET` request (the drop down near the URL in Postman) to the following URL: `https://org9442ae7b.crm.dynamics.com/api/data/v9.0` (obviously replacing `org9442ae7b` with your org name).
 
-If successful, you will receive back a list of tables in your Dataverse instance, in Javascript Object Notation (JSON) format. It will look like this (this is truncated, but you get the point):
+If successful, you will receive back a list of tables in your Dataverse instance, in JavaScript Object Notation (JSON) format. It will look like this (this is truncated, but you get the point):
 ```
 {
     "@odata.context": "https://org9442ae7b.crm.dynamics.com/api/data/v9.0/$metadata",
@@ -112,7 +112,7 @@ The response will return **every field** of **every record** in the contacts tab
 You just appended an OData parameter to your URL! By stacking the OData parameters mentioned earlier, you can create more complex queries.
 
 ### Read a single record
-If we know the GUID ("Global Unique Identifier", a primary key) of a single record in a table, you can request data for *only* that record by including it in paranthesis. For example, requesting a single record with ID `8e27ee97-cbe1-ec11-bb3d-00224803b8c6` from the contacts table: `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/contacts(8e27ee97-cbe1-ec11-bb3d-00224803b8c6)`. You will see that the response does not return an *array* of objects, but rather a single object.
+If we know the GUID ("Global Unique Identifier", a primary key) of a single record in a table, you can request data for *only* that record by including it in parentheses. For example, requesting a single record with ID `8e27ee97-cbe1-ec11-bb3d-00224803b8c6` from the contacts table: `https://org9442ae7b.crm.dynamics.com/api/data/v9.0/contacts(8e27ee97-cbe1-ec11-bb3d-00224803b8c6)`. You will see that the response does not return an *array* of objects, but rather a single object.
 
 ## Dataverse Write Operation
 In addition to reading from Dataverse, we can also use the Web API for *writing* to Dataverse.
@@ -126,7 +126,7 @@ Navigate to the *Body* column. Select *raw* as the body type, and *JSON* as the 
     "name":"Stark Industries"
 }
 ```
-Hit send! If you receive a `204 No Content` response, you have succeeded. Pull up the list of accounts in a model-drvien app and now you should see your new account has been made.
+Hit send! If you receive a `204 No Content` response, you have succeeded. Pull up the list of accounts in a model-driven app and now you should see your new account has been made.
 ![create new record](./img/post.png)
 
 ### Update a Record

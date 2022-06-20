@@ -150,3 +150,6 @@ So far we've seen how to **create** a record, **read** a record, and **update** 
 Unlike the update operation, we obviously will not need to provide content in the request Body because this is merely a delete operation - no data should be changed. Be sure you have *none* selected under the *Body* tab.
 
 After specifying the above in your request, press send. If you receive a `204 No Content` response, this means your delete request was successful. The targeted record with the ID that you specified is now deleted.
+
+## Summary
+There is *a lot* more to what the Dataverse Web API can provide, but I hope this tutorial was enough to get you started with using, but more importantly **understanding** the Dataverse Web API. The Dataverse Web API follows the OData standard, and thus, the more you learn about the OData protocol, the more capable you will be of working with the Dataverse Web API.

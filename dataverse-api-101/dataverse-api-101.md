@@ -153,3 +153,5 @@ After specifying the above in your request, press send. If you receive a `204 No
 
 ## Summary
 There is *a lot* more to what the Dataverse Web API can provide, but I hope this tutorial was enough to get you started with using, but more importantly **understanding** the Dataverse Web API. The Dataverse Web API follows the OData standard, and thus, the more you learn about the OData protocol, the more capable you will be of working with the Dataverse Web API.
+
+Written by Tim Hanewich, Business Applications Technical Specialist @ Microsoft (alias TIMH)

@@ -213,6 +213,14 @@ Even though it's only a single column that's been selected, it's returned as an 
 
 https://docs.microsoft.com/en-us/powerapps/developer/data-platform/webapi/retrieve-related-entities-query
 
+## Use display name of Choice field returned from Dataverse record
+
+The example below gets the localized Stage Category label returned in the body of a previously called GetItem action called *Get_Process_Stage_Details*.
+
+```
+outputs('Get_Process_Stage_Details')?['body/stagecategory@OData.Community.Display.V1.FormattedValue']
+```
+
 ## Parse JSON
 
 Mini Tutorial (YouTube video) <https://www.youtube.com/watch?v=q5CruaqHaHg>

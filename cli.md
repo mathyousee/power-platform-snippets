@@ -126,6 +126,8 @@ Regarding the `version` variable: All of the version validation is stored inside
 
 ## Export solution and unpack so it is usable in source control
 
+***Need to update this based on the `-processCanvasApps` parameter for `pac solution unpack` command***
+
 The .zip file format of the solution is useful for citizen developers to import packages to other enviornments, however from a source control perspective it's more valuable to unpack that .zip file so individual changes can be reviewed/understood later. CLI offers us this capability. I'll start with my script, then describe the different steps.
 
 ``` powershell

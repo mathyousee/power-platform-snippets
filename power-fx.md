@@ -2,6 +2,22 @@
 
 Little snippets, functions, and code that I want to remember later.
 
+**In this article**
+
+- [Power Fx](#power-fx)
+  - [Format currency](#format-currency)
+  - [Format with a custom date format](#format-with-a-custom-date-format)
+  - [Quotation marks in text](#quotation-marks-in-text)
+  - [Create a Collection by hand](#create-a-collection-by-hand)
+  - [Collect response values from a Flow](#collect-response-values-from-a-flow)
+  - [Add Columns to a Collection using a LookUp to another table](#add-columns-to-a-collection-using-a-lookup-to-another-table)
+    - [Updating the user defined function](#updating-the-user-defined-function)
+  - [Simple theming](#simple-theming)
+  - [Navigation Commands](#navigation-commands)
+    - [Navigate to Page from Grid or Record](#navigate-to-page-from-grid-or-record)
+    - [Handle command navigation parameter in Canvas Page](#handle-command-navigation-parameter-in-canvas-page)
+  - [Links](#links)
+
 ## Format currency
 
 EN-US $2,000.00

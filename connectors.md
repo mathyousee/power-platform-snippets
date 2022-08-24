@@ -2,6 +2,12 @@
 
 References for Power Platform connectors
 
+**In this article**
+
+- [Connectors](#connectors)
+  - [Connector Authentication Patterns](#connector-authentication-patterns)
+  - [Links](#links)
+
 ## Connector Authentication Patterns
 
 Power Apps and Power Automate authenticate with connectors to create a connection environment. It is that environment that contains the specific configuration information necessary for the app or flow to talk to the connector API that is used in each interaction. Connectors could choose to use no authentication, basic authentication, API key authentication or OAuth 2.0. The most common are OAuth and API Key.

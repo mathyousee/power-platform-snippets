@@ -1,10 +1,21 @@
-# Power Platform CLI
+# Power Platform CLI <!-- omit from toc -->
 
 The CLI is not a typical Citizen Developer topic, nor do they have a direct need for it. That said, I am right on the line of Citizen Dev and Pro Dev (Pro Dev Light? Deputized Citizen Dev?) and have found ways to make the Power Platform CLI useful for my builds.
 
 Typically, I use this to grab point-in-time updates of the configuration I do via the Power Apps maker portal, so they can be part of a larger process and provide better visibility for if/when IT wants to take over (or at least have more oversight of what I'm doing).
 
 FWIW I keep most of these in a PowerShell file in VSCode and run them from the integrated console. There are definitely other ways to do it but that's what works for me (as a basic PowerShell / CLI user). In case you want that file, let me know via a GitHub issue and I'll upload it ;) 
+
+**In this article**
+
+- [Power Platform CLI](#power-platform-cli)
+  - [Install Power Platform CLI and update to latest version](#install-power-platform-cli-and-update-to-latest-version)
+  - [Authenticate and connect to Dataverse organization](#authenticate-and-connect-to-dataverse-organization)
+  - [Clone a solution definition to the current folder](#clone-a-solution-definition-to-the-current-folder)
+  - [Export a solution from the current environment](#export-a-solution-from-the-current-environment)
+  - [Export Managed and Unmanaged solutions at the current point in time](#export-managed-and-unmanaged-solutions-at-the-current-point-in-time)
+  - [Export solution and unpack so it is usable in source control](#export-solution-and-unpack-so-it-is-usable-in-source-control)
+  - [Links](#links)
 
 ## Install Power Platform CLI and update to latest version
 

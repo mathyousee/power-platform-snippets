@@ -2,6 +2,20 @@
 
 References for Odata filters
 
+**In this article**
+
+- [Odata expressions](#odata-expressions)
+  - [Filter results](#filter-results)
+    - [Standard filter operators](#standard-filter-operators)
+    - [Standard query functions](#standard-query-functions)
+    - [Checking for null or non-null values](#checking-for-null-or-non-null-values)
+    - [Dataverse Web API query functions](#dataverse-web-api-query-functions)
+    - [Use Lambda operators](#use-lambda-operators)
+    - [`any` operator](#any-operator)
+  - [Aggregate and Grouping results](#aggregate-and-grouping-results)
+  - [Videos](#videos)
+  - [Links](#links)
+
 ## Filter results
 
  Use the `$filter` system query option to set criteria for which entities will be returned.  

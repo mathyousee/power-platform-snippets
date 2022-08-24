@@ -2,6 +2,26 @@
 
 Little snippets, functions, and code that I want to remember later.
 
+**In this article**
+
+- [Power Automate](#power-automate)
+  - [Format utcNow date results](#format-utcnow-date-results)
+  - [Query Dataverse User based on O365 user ID](#query-dataverse-user-based-on-o365-user-id)
+  - [Get first record from a Dataverse List Records action](#get-first-record-from-a-dataverse-list-records-action)
+  - [Did the body output contain data?](#did-the-body-output-contain-data)
+  - [Get primary entity and related record information in Dataverse flow step](#get-primary-entity-and-related-record-information-in-dataverse-flow-step)
+  - [Relate Records action in Dataverse (Current Environment) connector](#relate-records-action-in-dataverse-current-environment-connector)
+  - [Lookup relationships when using Create New Record action in Dataverse (Current Environment) connector](#lookup-relationships-when-using-create-new-record-action-in-dataverse-current-environment-connector)
+    - [Plural names for Dataverse tables ending in -y](#plural-names-for-dataverse-tables-ending-in--y)
+    - [Setting a Case regarding a Patient via the Dataverse Create Record action](#setting-a-case-regarding-a-patient-via-the-dataverse-create-record-action)
+  - [First item from Sub-array](#first-item-from-sub-array)
+  - [Updating list of required fields in original JSON](#updating-list-of-required-fields-in-original-json)
+  - [Expand query for Dataverse connector, find related lookup record](#expand-query-for-dataverse-connector-find-related-lookup-record)
+  - [Expand query for Dataverse connector, find related many records](#expand-query-for-dataverse-connector-find-related-many-records)
+  - [Use display name of Choice field returned from Dataverse record](#use-display-name-of-choice-field-returned-from-dataverse-record)
+  - [Parse JSON](#parse-json)
+  - [Links](#links)
+
 ## Format utcNow date results
 
 YYYY-MM-dd

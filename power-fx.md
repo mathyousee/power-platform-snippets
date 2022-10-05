@@ -188,6 +188,18 @@ Set(myProperties,
 
 To save time on setting these properties, I try to use copy/paste of a similar control that I've already treated (in favor of adding a new one from the control library). That said, if I have multiple components to update at once, I'll multi-select these from the navigation view, then use the formula bar to choose he property (such as Font) then set all of the selected components to MyFont.FaceBody.
 
+## Relate and Unrelate N:N Dataverse entities
+
+The following example assumes you are tracking volunteers and the organizations with which they volunteer. Any given volunteer (Contact) can volunteer with multiple organizations (Accounts) and the Dataverse N:N relationship has been created between the Account and Contact to represent this.
+
+The following sample relates a volunteer contact (selected in the gal_Contacts gallery) with an Account (selected in the gal_Account gallery).
+
+```
+Relate(gal_Account.Volunteers,gal_Contacts.Selected)
+```
+
+The format of the function is to identify a record in a table then the relationship name via dot notation (.Volunteers) as the first parameter, then the related record as the second parameter.
+
 ## Navigation Commands
 
 JavaScript is supported as well, so there are some functions included below as well.

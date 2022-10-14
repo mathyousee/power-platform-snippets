@@ -16,6 +16,7 @@ Little snippets, functions, and code that I want to remember later.
   - [Navigation Commands](#navigation-commands)
     - [Navigate to Page from Grid or Record](#navigate-to-page-from-grid-or-record)
     - [Handle command navigation parameter in Canvas Page](#handle-command-navigation-parameter-in-canvas-page)
+  - [Patch Opportunity Customer](#patch-opportunity-customer)
   - [Links](#links)
 
 ## Format currency
@@ -299,6 +300,19 @@ Set(RecordItem,
         LookUp('Table', 'RecordId' = GUID(Substitute(Substitute(Param("recordId"),"{",""),"}",""))))
     )
 ```
+
+## Patch Opportunity Customer
+
+I can never seem to remember the Patch() command when setting an Opportunity Potential Customer in Dynamics 365 Sales. The bare bones are:
+
+```
+Patch(Opportunities,Defaults(Opportunities),{
+    Topic: "Test",
+    _customerid_value: varMyCustomerRecord
+})
+```
+
+Where `varMyCustomerRecord` is a variable set to the *Record* for an Account or Contact. `Defaults(Opportunities)` is used to create a new Opportunity, but this could reference an existing Opportunity *Record*.
 
 ## Links
 

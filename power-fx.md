@@ -314,6 +314,24 @@ Patch(Opportunities,Defaults(Opportunities),{
 
 Where `varMyCustomerRecord` is a variable set to the *Record* for an Account or Contact. `Defaults(Opportunities)` is used to create a new Opportunity, but this could reference an existing Opportunity *Record*.
 
+## Validate email format has been followed
+
+Check to make sure the proper name@domain.extension format has been followed. This is more precise than other approaches that rely on the "IsMatch(...,Email)" which can provide false positives.
+
+```
+IsMatch(myFancyText,"^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$")
+```
+
+The example below is from a button, if the input_email control has an email address, then collect that email address, otherwise send up a notification.
+
+```
+If(
+    IsMatch(input_email_1.Text,"^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$"),
+    Collect(col_invitees,{channel:"email",value:input_email_1.Text});Reset(input_email_1),
+    Notify("Please use a valid email address",NotificationType.Error)
+)
+```
+
 ## Links
 
 [Power Fx overview](https://docs.microsoft.com/en-us/power-platform/power-fx/overview)

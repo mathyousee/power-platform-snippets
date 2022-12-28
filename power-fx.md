@@ -346,6 +346,20 @@ In this case, the value of "abc(800) 555-1234" returns "8005551234", which I cou
 
 More on matching functions can be found here: https://learn.microsoft.com/en-us/power-platform/power-fx/reference/function-ismatch and I like
 
+## Teams URL-based deep links
+
+I have several apps where I launch unscheduled (ad-hoc) Teams voice calls. 
+
+To dial out to a traditional phone number, I use the following format to prepend the phone number.
+
+``` PowerFx
+Launch("https://teams.microsoft.com/l/call/0/0?users=4:"&varFancyPhoneNumber)
+```
+
+Note, the important thing is the `4:` before the phone number.
+
+[More examples on Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/deep-links?tabs=teamsjs-v2)
+
 ## Links
 
 [Power Fx overview](https://docs.microsoft.com/en-us/power-platform/power-fx/overview)

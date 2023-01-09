@@ -17,6 +17,9 @@ Little snippets, functions, and code that I want to remember later.
     - [Navigate to Page from Grid or Record](#navigate-to-page-from-grid-or-record)
     - [Handle command navigation parameter in Canvas Page](#handle-command-navigation-parameter-in-canvas-page)
   - [Patch Opportunity Customer](#patch-opportunity-customer)
+  - [Validate email format has been followed](#validate-email-format-has-been-followed)
+  - [Strip non-numeric characters from a string](#strip-non-numeric-characters-from-a-string)
+  - [Teams URL-based deep links](#teams-url-based-deep-links)
   - [Links](#links)
 
 ## Format currency
@@ -332,7 +335,7 @@ If(
 )
 ```
 
-## Strip non-numberic characters from a string
+## Strip non-numeric characters from a string
 
 I had a requirement to take a parameter of a phone number, but the phone number may have unexpected formatting (some may have parenthesis, dashes, spaces...nothing consistent). 
 
@@ -359,6 +362,22 @@ Launch("https://teams.microsoft.com/l/call/0/0?users=4:"&varFancyPhoneNumber)
 Note, the important thing is the `4:` before the phone number.
 
 [More examples on Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/deep-links?tabs=teamsjs-v2)
+
+## URL parameter consumption formula
+
+Upon learning about the upcoming feature of *Named formulas* in a Power App, there are some opportunities to standardize some common operations. One of those is passing a record into a Canvas App.
+
+``` PowerFx
+varMyRecord=If(
+    IsBlank(Param("RecordId")),
+    LookUp('Contacts','Contact'=GUID("b57974f4-b403-ed21-82e4-000d3a997ecc")),
+    LookUp('Contacts','Contact'=GUID(Param("RecordId")))
+    );
+```
+
+The upshot of this approach is that this can be used with a Debug flag in the app, to add in a check for the If statement.
+
+For simplicity, I am assuming a valid ID is passed if Param() is not blank...but error handling should be considered in how your app should behave if a bad GUID was passed.
 
 ## Links
 

@@ -13,6 +13,7 @@ Little snippets, functions, and code that I want to remember later.
   - [Add Columns to a Collection using a LookUp to another table](#add-columns-to-a-collection-using-a-lookup-to-another-table)
     - [Updating the user defined function](#updating-the-user-defined-function)
   - [Simple theming](#simple-theming)
+  - [Relate and Unrelate N:N Dataverse records](#relate-and-unrelate-nn-dataverse-entities)
   - [Navigation Commands](#navigation-commands)
     - [Navigate to Page from Grid or Record](#navigate-to-page-from-grid-or-record)
     - [Handle command navigation parameter in Canvas Page](#handle-command-navigation-parameter-in-canvas-page)

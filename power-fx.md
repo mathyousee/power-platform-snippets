@@ -21,6 +21,7 @@ Little snippets, functions, and code that I want to remember later.
   - [Validate email format has been followed](#validate-email-format-has-been-followed)
   - [Strip non-numeric characters from a string](#strip-non-numeric-characters-from-a-string)
   - [Teams URL-based deep links](#teams-url-based-deep-links)
+  - [Truncate long labels](#truncate-long-label)
   - [Links](#links)
 
 ## Format currency
@@ -379,6 +380,17 @@ varMyRecord=If(
 The upshot of this approach is that this can be used with a Debug flag in the app, to add in a check for the If statement.
 
 For simplicity, I am assuming a valid ID is passed if Param() is not blank...but error handling should be considered in how your app should behave if a bad GUID was passed.
+
+## Truncate long label
+
+In a label field, sometimes I like using a flexible height, but other times I just want to cut off the text in a way that shows there's "more".
+
+``` PowerFx
+If(Len(ThisItem.Name)>25,Left(ThisItem.Name,25)&"...",ThisItem.Name)
+
+```
+
+The example above is used for a Label control inside of a Gallery. I set the above in a *Label.Text* property, then typically also add the full **ThisItem.Name** in the *Label.Tooltip* property. I include the "..." as a hint to the user that the full value is not visible.
 
 ## Links
 

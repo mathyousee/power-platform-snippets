@@ -387,10 +387,14 @@ In a label field, sometimes I like using a flexible height, but other times I ju
 
 ``` PowerFx
 If(Len(ThisItem.Name)>25,Left(ThisItem.Name,25)&"...",ThisItem.Name)
-
 ```
 
-The example above is used for a Label control inside of a Gallery. I set the above in a *Label.Text* property, then typically also add the full **ThisItem.Name** in the *Label.Tooltip* property. I include the "..." as a hint to the user that the full value is not visible.
+The example above is used for a Label control inside of a Gallery. 
+
+- I set the above in a *Label.Text* property, then typically also add the full **ThisItem.Name** in the *Label.Tooltip* property. 
+- I'm using *25* for the length, however this should be based on your label size.
+- The inclusion of the "..." is a hint to the user that the full value is not visible. Note: the ellipsis adds 3 characters, so make sure to trim enough characters that the ellipsis dont' cause overflow.
+- Remember the impact of variable width fonts... *llllll* has a different width than *WWWWWW*.
 
 ## Links
 

@@ -47,8 +47,6 @@ Github Gists for how to get started (referenced in the blog/video): [Dataverse H
 
 ## Links
 
-[Connectors Documentation on docs.microsoft.com](https://docs.microsoft.com/en-us/connectors/)
-'
 > Effective November 2020:
 > - Common Data Service (CDS) has been renamed to Microsoft Dataverse. [Learn more](https://aka.ms/PAuAppBlog)
 > - Some terminology in Microsoft Dataverse has been updated. For example, *entity* is now *table* and *field* is now *column*. [Learn more](https://go.microsoft.com/fwlink/?linkid=2147247)

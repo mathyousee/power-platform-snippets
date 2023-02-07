@@ -7,6 +7,9 @@ Details and reminders for working with Dataverse as a platform component, data s
 - [Dataverse](#dataverse)
   - [Security Roles](#security-roles)
     - [Minimum privilege security role](#minimum-privilege-security-role)
+  - [Standard APIs](#standard-apis)
+  - [Custom APIs](#custom-apis)
+    - [Dataverse Healthcare APIs](#dataverse-healthcare-apis)
   - [Links](#links)
 
 ## Security roles
@@ -23,6 +26,24 @@ To use: Download the solution, import to your dev environment, then select Copy 
 
 The full details can be found here: [MS Learn](https://learn.microsoft.com/en-us/power-platform/admin/database-security#minimum-privileges-to-run-an-app)
 
+## Standard APIs
+
+[Dataverse API 101](/dataverse-api-101/readme.md)
+
+## Custom APIs
+
+Developers can create their own custom APIs to expose through Dataverse. Some solutions from Microsoft make use of this in order to offer scenario-specific functionality.
+
+### Dataverse Healthcare APIs
+
+| API             | Action | URI                                                   | Purpose                                                                                                             |
+|-----------------|--------|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| Upsert Bundle   | POST   | [Organization URI]/api/data/v9.1/msind_UpsertBundle   | Accepts a FHIR bundle, insert/updates values in one or more Dataverse tables based on the mapping template.         |
+| Retrieve Bundle | POST   | [Organization URI]/api/data/v9.1/msind_RetrieveBundle | Produces a FHIR bundle for the selected resource, based on the values stored in Dataverse and the mapping template. |
+
+Blog and video for how to get started: [Getting started with the Dataverse Healthcare API](https://techcommunity.microsoft.com/t5/healthcare-and-life-sciences/getting-started-with-the-dataverse-healthcare-api/ba-p/3713587)
+
+Github Gists for how to get started (referenced in the blog/video): [Dataverse Healthcare API samples](https://gist.github.com/mathyousee/3678a14fe5599cb9526428b9e1a6ed24)
 
 ## Links
 

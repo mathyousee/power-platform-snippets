@@ -16,7 +16,7 @@ Little snippets, functions, and code that I want to remember later.
 
 [CLI](/cli.md)
 
-[Dataverse API](/dataverse-api-101/readme.md)
+[Dataverse](./dataverse.md)
 
 ## Links
 

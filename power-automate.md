@@ -257,6 +257,8 @@ Thesis on Parse JSON action in Power Automate - <http://johnliu.net/blog/2018/6/
 
 <https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language>
 
+[Logic Apps Functions Reference](https://learn.microsoft.com/en-us/azure/logic-apps/workflow-definition-language-functions-reference)
+
 <https://spmaestro.com/handling-json-in-microsoft-flow/>
 
 > Effective November 2020:

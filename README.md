@@ -10,6 +10,8 @@ Little snippets, functions, and code that I want to remember later.
 
 [Power Virtual Agents (PVA)](/power-virtual-agents.md)
 
+[Cards](/cards.md)
+
 [Odata](/odata.md)
 
 [Connectors](/connectors.md)

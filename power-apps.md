@@ -23,7 +23,8 @@ https://[applinkurl]?source=iframe
 This can be done with a URL, however that opens the link in a new window. To have the app open in the main panel of a model-driven app, the technique is to use a Web Resource for the navigation item. The code of that web resource generally looks like this:
 
 ``` html
-<head>
+<html>
+  <head>
     <title>Embedded App</title>
     <style>
       body, html {
@@ -42,7 +43,7 @@ This can be done with a URL, however that opens the link in a new window. To hav
   <body>
     <iframe src="[CanvasAppUrlWithout]"></iframe>
   </body>
-  </html>
+</html>
 ```
 
 Source: [https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/embed-apps-dev](https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/embed-apps-dev)

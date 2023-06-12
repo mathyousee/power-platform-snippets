@@ -10,6 +10,7 @@ Details and reminders for working with Dataverse as a platform component, data s
   - [Standard APIs](#standard-apis)
   - [Custom APIs](#custom-apis)
     - [Dataverse Healthcare APIs](#dataverse-healthcare-apis)
+  - [Dataverse Offline Mode](#dataverse-offline-mode-for-canvas)
   - [Links](#links)
 
 ## Security roles

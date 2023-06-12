@@ -45,6 +45,36 @@ Blog and video for how to get started: [Getting started with the Dataverse Healt
 
 Github Gists for how to get started (referenced in the blog/video): [Dataverse Healthcare API samples](https://gist.github.com/mathyousee/3678a14fe5599cb9526428b9e1a6ed24)
 
+## Dataverse offline mode for Canvas
+
+### Power Fx for Dataverse offline mode
+
+**Power Fx send notification based on ConnectionSync value**
+
+``` Power Fx
+Switch(
+   Connection.Sync,
+   ConnectionSync.Connected,
+   Notify("Your device is connected to the network, and your app is ready to work offline.",NotificationType.Success), 
+   ConnectionSync.ConnectedWithWarning,
+   Notify(Connection.LastSyncMessage,NotificationType.Warning),
+   ConnectionSync.ConnectedPendingUpsync,
+   Notify("Some data on your device must be synchronized with the server.",NotificationType.Warning),
+   ConnectionSync.ConnectedError,
+   Notify(Connection.LastSyncMessage,NotificationType.Error),
+   ConnectionSync.ConnectedRefresh,
+   Notify("Your app is currently synchronizing data with the server.",NotificationType.Information),
+   ConnectionSync.NotConnected,
+   Notify("Your device is not connected to the network, but you can keep using this app.",NotificationType.Success), 
+   ConnectionSync.NotConnectedWithWarning, 
+   Notify(Connection.LastSyncMessage, NotificationType.Warning),
+   ConnectionSync.NotConnectedPendingUpsync,
+   Notify("Some data on your device must be synchronized with the server. Reconnect to the network to synchronize.", NotificationType.Warning),
+   ConnectionSync.NotConnectedSyncError, 
+   Notify(Connection.LastSyncMessage,NotificationType.Error)
+)
+```
+
 ## Links
 
 > Effective November 2020:

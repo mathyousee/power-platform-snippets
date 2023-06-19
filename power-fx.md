@@ -22,6 +22,7 @@ Little snippets, functions, and code that I want to remember later.
   - [Strip non-numeric characters from a string](#strip-non-numeric-characters-from-a-string)
   - [Teams URL-based deep links](#teams-url-based-deep-links)
   - [Truncate long labels](#truncate-long-label)
+  - [Set multiple default items in a ComboBox](#set-multiple-default-items-in-a-combobox)
   - [Links](#links)
 
 ## Format currency
@@ -395,6 +396,19 @@ The example above is used for a Label control inside of a Gallery.
 - I'm using *25* for the length, however this should be based on your label size.
 - The inclusion of the "..." is a hint to the user that the full value is not visible. Note: the ellipsis adds 3 characters, so make sure to trim enough characters that the ellipsis dont' cause overflow.
 - Remember the impact of variable width fonts... *llllll* has a different width than *WWWWWW* even though they're both 6 characters.
+
+## Set multiple default items in a ComboBox
+
+Set the ComboBox.DefaultSelectedItems property to a Table() value. Something like this:
+
+``` Power Fx
+Table(
+    LookUp(Users,User=GUID("b83c01bc-7cc2-ed11-83af-000d3a1a02cb")), 
+    LookUp(Users,User=GUID("511d59f1-5de8-ed11-a6c6-000d3a1a02cb"))
+)
+```
+
+This will ensure that the full record is selected, which becomes important when referencing field values in other formulas.
 
 ## Links
 

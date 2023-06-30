@@ -33,3 +33,7 @@ Adaptive cards [samples](https://adaptivecards.io/samples/) and [designer](https
 Sample solutions that are more than just "snippets" of code. These include more assets and are intended for proof of concept, demonstration, and educational purposes.
 
 - [Power Apps Samples (Microsoft)](https://github.com/Microsoft/PowerApps-Samples#power-apps-samples) - Github repository supporting the Power Apps Developer documentation.
+
+## Contributing
+
+Thank you for your interest in contributing to this repository! We welcome any contributions that can help improve and enhance the project. Whether you're fixing a bug, adding a new feature, or suggesting improvements, your contributions are highly appreciated.
